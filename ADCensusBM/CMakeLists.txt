@@ -32,17 +32,6 @@ set(BOOST_LIBRARIES ${Boost_LIBRARIES})
 INCLUDE_DIRECTORIES(${BOOST_INCLUDE_DIRS})
 SET(LIBS ${LIBS} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY} ${Boost_DATE_TIME_LIBRARY})
 
-# Under Windows the system variable "PCL_ROOT" must be set to the location of the root directory of PCL.
-find_package(PCL 1.2 REQUIRED)
-SET(LIBS ${LIBS} ${PCL_LIBRARIES})
-include_directories(${PCL_INCLUDE_DIRS})
-link_directories(${PCL_LIBRARY_DIRS})
-add_definitions(${PCL_DEFINITIONS})
-
-FIND_PACKAGE(Config++ REQUIRED)
-INCLUDE_DIRECTORIES(${LIBCONFIG_INCLUDE_DIR})
-SET(LIBS ${LIBS} ${LIBCONFIG_LIBRARIES})
-
 aux_source_directory(. SRC_LIST)
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
